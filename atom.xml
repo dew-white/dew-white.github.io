@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>秋澄杂货铺</title>
-  
+  <icon>https://www.gravatar.com/avatar/5eaf2e3e95711fd03d6785510d3ca1e6</icon>
   
   <link href="http://example.com/atom.xml" rel="self"/>
   
@@ -11,7 +11,7 @@
   
   <author>
     <name>秋澄Orange</name>
-    
+    <email>3330995315@qq.com</email>
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
