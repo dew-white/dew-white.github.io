@@ -1,20 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search> 
-  
-  
-    
-    <entry>
-      <title>Hello World</title>
-      <link href="/2021/07/19/hello-world/"/>
-      <url>/2021/07/19/hello-world/</url>
-      
-        <content type="html"><![CDATA[<p>ヾ(≧O≦)〃Hi~，我是秋澄Orange</p><p>早知道你会来了</p><p>接下来的日子里</p><p>一起前进吧，我们山顶见！</p>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-  
-  
+<search>
+  <entry>
+    <title>Hello World</title>
+    <url>/2021/07/19/hello-world/</url>
+    <content><![CDATA[<p>ヾ(≧O≦)〃Hi~，我是秋澄Orange</p>
+<p>早知道你会来了</p>
+<p>接下来的日子里</p>
+<p>一起前进吧，我们山顶见！</p>
+]]></content>
+  </entry>
 </search>
