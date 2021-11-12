@@ -3,7 +3,7 @@
   <entry>
     <title>Hello World</title>
     <url>/2021/07/19/hello-world/</url>
-    <content><![CDATA[<p>ヾ(≧O≦)〃Hi~，我是秋澄Orange</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\css\APlayer.min.css"><script src="\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\js\Meting.min.js"></script><p>ヾ(≧O≦)〃Hi~，我是秋澄Orange</p>
 <p>早知道你会来了</p>
 <p>接下来的日子里</p>
 <p>一起前进吧，我们山顶见！</p>
