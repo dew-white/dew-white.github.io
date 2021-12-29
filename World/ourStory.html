@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        body
+{
+  background-color:rgb(255, 255, 255)
+}
+.wrap
+{
+  margin:50px auto 0 auto;
+  width:100%;
+  display:flex;
+  align-items:space-around;
+  max-width:1200px;
+}
+.tile
+{
+  width:380px;
+  height:380px;
+  margin:10px;
+  background-color:#99aeff;
+  display:inline-block;
+  background-size:cover;
+  position:relative;
+  cursor:pointer;
+  transition: all 0.4s ease-out;
+  box-shadow: 0px 35px 77px -17px rgba(0,0,0,0.44);
+  overflow:hidden;
+  color:white;
+  font-family:'Roboto';
+  border-radius: 5%;
+  
+}
+.tile img
+{
+  height:100%;
+  width:100%;
+  position:absolute;
+  top:0;
+  left:0;
+  z-index:0;
+  transition: all 0.4s ease-out;
+}
+.tile .text
+{
+/*   z-index:99; */
+  position:absolute;
+  padding:30px;
+  height:calc(100% - 60px);
+}
+.tile h1
+{
+ 
+  font-weight:300;
+  margin:0;
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+}
+.tile h2
+{
+  font-weight:100;
+  margin:20px 0 0 0;
+  font-style:italic;
+   transform: translateX(200px);
+}
+.tile p
+{
+  font-weight:300;
+  margin:20px 0 0 0;
+  line-height: 25px;
+/*   opacity:0; */
+  transform: translateX(-200px);
+  transition-delay: 0.2s;
+}
+.animate-text
+{
+  opacity:0;
+  transition: all 0.6s ease-in-out;
+}
+.tile:hover
+{
+/*   background-color:#99aeff; */
+box-shadow: 0px 35px 77px -17px rgba(0,0,0,0.64);
+  transform:scale(1.05);
+}
+.tile:hover img
+{
+  opacity: 0.2;
+}
+.tile:hover .animate-text
+{
+  transform:translateX(0);
+  opacity:1;
+}
+.dots
+{
+  position:absolute;
+  bottom:20px;
+  right:30px;
+  margin: 0 auto;
+  width:30px;
+  height:30px;
+  color:currentColor;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:space-around;
+  
+}
+
+.dots span
+{
+    width: 5px;
+    height:5px;
+    background-color: currentColor;
+    border-radius: 50%;
+    display:block;
+  opacity:0;
+  transition: transform 0.4s ease-out, opacity 0.5s ease;
+  transform: translateY(30px);
+ 
+}
+
+.tile:hover span
+{
+  opacity:1;
+  transform:translateY(0px);
+}
+
+.dots span:nth-child(1)
+{
+   transition-delay: 0.05s;
+}
+.dots span:nth-child(2)
+{
+   transition-delay: 0.1s;
+}
+.dots span:nth-child(3)
+{
+   transition-delay: 0.15s;
+}
+
+
+@media (max-width: 1000px) {
+  .wrap {
+   flex-direction: column;
+    width:400px;
+  }
+}
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="tile"> 
+          <img src='https://s4.ax1x.com/2021/12/29/TgbsCF.md.jpg'/>
+          <div class="text">
+          <h1> </h1>
+          <h2 class="animate-text">葡萄味的故事因为一句话而开始</h2>
+          <p class="animate-text">跟你在一起的时光都很耀眼，</br>因为天气好，</br>因为天气不好，</br>因为天气刚刚好，</br>每一天，</br>都很美好。 </br>&emsp;——语小嫣</br>&emsp;&emsp;2021/7/9</p>
+        <div class="dots" onclick="window.open('https://s4.ax1x.com/2021/12/29/TgbsCF.md.jpg')">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          </div>
+         </div>
+        
+        
+        <div class="tile"> 
+          <img src='https://s4.ax1x.com/2021/12/29/TgjPYV.md.jpg'/>
+          <div class="text">
+          <h1>旅行</h1>
+          <h2 class="animate-text">Travel</h2>
+          <p class="animate-text">&emsp;半日嘉陵至，黄昏余晖见。</br>&emsp;与子共登虹，来日卿可否？</br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;——程小汁</br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;2021/7/27 </p>
+        <div class="dots" onclick="window.open('https://s4.ax1x.com/2021/12/29/TgbsCF.md.jpg')">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          </div>
+         </div>
+          
+          <div class="tile"> 
+          <img src='https://s4.ax1x.com/2021/12/30/T2VKzj.md.jpg'/>
+          <div class="text">
+          <h1>日常</h1>
+          <h2 class="animate-text">Daily</h2>
+          <p class="animate-text">冰粉、黄焖鸡、板烧、牛“井”饭、五谷渔粉、佳华饭店、珍珍饭店、杨国福麻辣烫、旺苍麻辣烫、龙江江湖菜、重庆鸡公煲、番茄鸡蛋面、粗茶淡饭、禾谷炒饭、曹氏现捞、茶屿、益禾堂... </p>
+        <div class="dots" onclick="window.open('https://s4.ax1x.com/2021/12/29/TgbsCF.md.jpg')">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          </div>
+         </div>
+    
+         <div class="tile"> 
+          <img src='https://s4.ax1x.com/2021/12/30/T2ZEc9.md.jpg'/>
+          <div class="text">
+          <h1></h1>
+          <h2 class="animate-text">关于未来的畅想</h2>
+          <p class="animate-text">我和你故事才刚刚开始，</br>未来我们的路漫漫,</br>愿你满饮我在月光下</br>为你斟的这杯新醅的葡萄酒，</br>希望它能驱散未来我们奋斗路上的种种委屈与不甘。</br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;——程小汁</br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;2021/12/31 </p>
+        <div class="dots" onclick="window.open('https://s4.ax1x.com/2021/12/29/TgbsCF.md.jpg')">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          </div>
+         </div>
+    </div>
+</body>
+</html>
