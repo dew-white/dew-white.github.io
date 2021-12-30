@@ -7,93 +7,386 @@
     <title>Document</title>
     <style>
         * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+            box-sizing: border-box;
+        }
+        body {
+            width: 100vw;
+            height: 100vh;
+            overflow: auto;
+        }
 
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background: #eee;
-}
+        body {
+            padding: 2em 2em 2em 17em;
+            font-size: 16px;
+            line-height: 1.6;
+            
+            font-family: 'Roboto', sans-serif;
+        }
 
-.typing.animate {
-  width: 21ch;
-  border-right: 0.1em solid black;
-  font-family: monospace;
-  font-size: 2em;
-  animation: type 2.5s steps(20), writer 1s infinite alternate, delete 0.5s steps(5) 2.5s, type2 1s steps(4) 3s forwards, type3 3s steps(22, end) 6s forwards;
-  overflow: hidden;
-  white-space: nowrap;
-  cursor: pointer;
-}
+        .toc {
+            position: fixed;
+            left: 3em;
+            top: 5em;
+            padding: 1em;
+            width: 14em;
+            line-height: 2;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+       
+        .toc > li.visible>a {
+            color: #111;
+            transform: translate( 5px );
+        }
 
-.typing.animate::before { 
-  content: "Hello, I'm Christine";
-  animation: type2 1s steps(4) 3s forwards, type3 3s steps(22, end) 6s forwards;
-}
+        .toc-marker {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        .toc-marker>path {
+            transition: all 0.3s ease;
+        }
 
-@keyframes type {
-  from {
-    width: 0;
-  }
-  to {
-    width: 21ch;
-  }
-}
-
-@keyframes type2 {
-  from {
-    width: 16ch;
-    content: "Hello, I'm Chrissy. "
-  }
-  to {
-    width: 20ch;
-    content: "Hello, I'm Chrissy. "
-  }
-}
-
-@keyframes type3 {
-  from {
-    width: 20ch;
-    content: "Hello, I'm Chrissy. Welcome to my Website!"
-  }
-  to {
-    width: 42ch;
-    content: "Hello, I'm Chrissy. Welcome to my Website!"
-  }
-}
-
-@keyframes writer {
-  50% {
-    border-color: transparent;
-  }
-}
-
-@keyframes delete {
-  from {
-    width: 21ch;
-  }
-  to {
-    width: 16ch;
-  }
-}
+        .contents {
+            padding: 1em;
+            max-width: 800px;
+            font-size: 1.2em;
+            font-family: 'Frank Ruhl Libre', sans-serif;
+        }
+        .contents>img {
+            max-width: 100%;
+        }
+       .contents> h2,h3 {
+            padding-top: 1em;
+        }
+        @media screen and (max-width: 1200px) {
+            body {
+                font-size: 14px;
+                }
+        }
     </style>
 </head>
 <body>
-    <div class="typing animate"></div>
-    <script>
-        $(document).ready(() => {
-  let typingElement = $('.typing');
+    <nav class="toc">
+        <ul style="list-style: none;">
+            <li><a href="#intro">前言</a></li>
+            <li>
+                <a href="#dev">背景</a>
+                <ul>
+                    <li><a href="#dev-edit-html">柒捌</a></li>
+                    <li><a href="#dev-element-classes">玖拾</a></li>
+                    <li><a href="#dev-slide-classes">拾ⅠⅡ</a></li>
+                    <li><a href="#dev-export-html">叁拾壹</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#css">疑点</a>
+          <ul style="list-style: none;">
+            <li><a href="#css-fonts">柒捌</a></li>
+            <li><a href="#css-developer-mode">玖拾</a></li>
+            <li><a href="#css-examples">拾ⅠⅡ</a></li>
+          </ul>
+            </li>
+        </ul>
+      <svg class="toc-marker" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+        <path stroke="#444" stroke-width="3" fill="transparent" stroke-dasharray="0, 0, 0, 1000" stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)" />
+      </svg>
+    </nav>
+    
+    <article class="contents">
+      <section id="intro">
+        <h2>前言</h2>
+            从前有座城堡，城堡里有一个小仙女叫语小嫣。
+        </br>她十分羡慕人间的女孩有情郎的告白，此时她看了看身旁的程序员小王子。
+        </br>旁边不解风情的王子温柔地给出了神秘字符串，笑了笑说：我对你的话都藏在了这里。
+    </br>请阅读下面内容帮助语小嫣寻找答案...
+        </section>
+    
+        <section>
+            <div id="dev">
+                <h2>背景</h2>
+                <p>
+                    遥远的华夏大地上屹立着一座巍峨险峻的龙山，龙山脚下的那座名叫西南科大的象牙塔守护了龙山整整70年，那里满是追求知识年轻人。
+                    其中有一对年轻人，cj和hyy,他们于____年__月__日相识，经历了将近一年的熟悉与认识，终于在__年__月__日cj在中心湖的那棵柳树下向hyy表达了自己心意，后面发生了许许多多有趣的事情。
+                </p>
+               
+          <img class="developer-image" src="https://static.slid.es.s3.amazonaws.com/site/developers/slides-developer-mode-1.png">
+        </div>
+            
+            <div id="dev-edit-html">
+                <h3>柒捌</h3>
+                <p>炎炎夏日好在有佳人相伴稍降酷暑，他们每日相约共餐讨论生活趣事，其中重庆之旅最为关注。</p>>
+    
+                <img class="developer-image" src="https://static.slid.es.s3.amazonaws.com/site/developers/slides-developer-mode-2.png">
+            </div>
+    
+            <div id="dev-element-classes">
+                <h3>玖拾<a href="/pricing" class="header-secondary-text">(Requires Pro)</a></h3>
+                <p>
+                    As a paying Slides customer you have access to the <a href="#css">CSS editor</a> which allows you to add custom styles to your deck. By turning on the developer mode a new "class name" field will appear for any block that you focus. This allows you to easily target a specific element with your CSS.
+                </p>
+                <p>
+                    Here's an example that defines an "upside-down" class using custom CSS and applies it to a text block.
+                </p>
+                <pre class="code-block" data-highlight-theme="github-gist"><code class="hljs css">.upside-down {
+        transform: scale( 1, -1 );
+    }</code></pre>
+    
+                <img class="developer-image" src="https://static.slid.es.s3.amazonaws.com/site/developers/slides-developer-mode-3.png">
+            </div>
+    
+            <div id="dev-slide-classes">
+                <h3>拾ⅠⅡ<a href="/pricing" class="header-secondary-text">(Requires Pro)</a></h3>
+                <p>
+                    Just like you can add custom classes to individual elements it's also possible to add custom classes at the slide level. This can used to apply broader changes to the whole slide like inverting text and icon colors or changing the slide transition.
+                </p>
+                <img class="developer-image" src="https://static.slid.es.s3.amazonaws.com/site/developers/slides-developer-mode-4.png">
+                <p>
+                    Under the hood the slide background element is separate from the slide itself. Here are two examples showing how you'd target the slide contents or slide background using a custom class called "night-sky":
+                </p>
+    
+                <pre class="code-block" data-highlight-theme="github-gist"><code class="hljs css">// Targets the slide contents
+    .slides .night-sky svg path {
+        fill: yellow;
+    }
+    
+    // Target the slide background
+    .backgrounds .night-sky {
+        background: linear-gradient(0deg, #141528, #0b1bb2);
+    }</code></pre>
+    
+                <img class="developer-image" src="https://static.slid.es.s3.amazonaws.com/site/developers/slides-developer-mode-5.png">
+            </div>
+    
+            <div id="dev-export-html">
+                <h3>叁拾壹</h3>
+                <p>
+                    You can access the complete HTML for all slides in your deck ﻿inside of the export panel, under "Export to reveal.js"﻿. This provides a way of exporting your deck markup and the core Slides styles to reveal.js. There are a few limitations with exporting this way but it should provide a good starting point.
+                </p>
+    
+                <img class="developer-image" src="https://static.slid.es.s3.amazonaws.com/site/developers/slides-developer-mode-6.png">
+            </div>
+    
+        </section>
+    
+        <section>
+        <div id="css">
+          <h2>CSS Editor <a href="/pricing" class="header-secondary-text">(Requires Pro)</a></h2>
+          <p>
+            The CSS editor lets you author custom styles for your presentation with a real-time preview of the result. It's available as an option inside of the Style panel of the presentation editor.
+          </p>
+          <p>
+            The editor preprocesses styles using <a href="http://lesscss.org/">LESS</a>, though you're free to write plain CSS as well. We apply the styles in real-time as you type so there's no need to leave the editor or even press a refresh button to see what you're getting. Note that when your styles are saved they will be automatically wrapped in a ".reveal {}" selector to avoid conflicts with other page styles.
+          </p>
+        </div>
+        <div id="css-fonts">
+          <h3>Custom Fonts</h3>
+          <p>
+            You can load custom fonts from Typekit and Google fonts and apply them using custom CSS. <a href="http://help.slides.com/knowledgebase/articles/1077976-custom-fonts-pro">Find out more</a>.
+          </p>
+        </div>
+        <div id="css-developer-mode">
+          <h3>Developer Mode</h3>
+          <p>
+            If you turn on the <a href="#dev">developer mode</a> you can also add custom classes to any focused element. This is a convenient way to easily apply your CSS to specific elements.
+          </p>
+        </div>
+      
+        <div id="css-examples">
+            <h3>Examples</h3>
+            <pre class="code-block" data-highlight-theme="github-gist"><code class="hljs css">// Change presentation background
+    &amp; {
+        background: #a83239;
+    }
+    
+    // Change color of body text
+    .slides {
+        color: #009999;
+    }
+    
+    // Turn text white if the slide has a dark background
+    .has-dark-background {
+        color: #fff;
+    }
+    
+    // Add a blue border to all slides (each slide is a &lt;section&gt;)
+    .slides section {
+        outline: 1px solid blue;
+    }
+    
+    // Add a red border to all vertical stacks of slides
+    .slides section.stack {
+        outline: 1px solid red;
+    }<br>
+    // Include a custom font<br>@font-face {<br>&nbsp; font-family: "Cabin Sketch";<br>&nbsp; src: url("https://s3.amazonaws.com/static.slid.es/fonts/cabinsketch/cabinsketch-regular.woff") format("woff"),<br>&nbsp; &nbsp; &nbsp; &nbsp;url("https://s3.amazonaws.com/static.slid.es/fonts/cabinsketch/cabinsketch-regular.ttf") format("truetype");<br>}
+    <br>.slides h1, .slides h2, .slides h3 {<br>&nbsp; &nbsp; font-family: "Cabin Sketch";<br>}
+    
+    
+    // Change color of controls and progress bar
+    ﻿@interactiveColor: rgb(200,105,119);
+    
+    .progress span {
+        background: @interactiveColor !important;
+    }
+    
+    .controls .navigate-left {
+        border-right-color: @interactiveColor !important;
+    }
+    .controls .navigate-right {
+        border-left-color: @interactiveColor !important;
+    }
+    .controls .navigate-up {
+        border-bottom-color: @interactiveColor !important;
+    }
+    .controls .navigate-down {
+        border-top-color: @interactiveColor !important;
+    }</code></pre>
+      </div>
+    
+        <p>Here's where you can access the CSS editor from inside of the Style panel:</p>
+        <img class="developer-image" src="https://static.slid.es.s3.amazonaws.com/site/developers/slides-css-editor-1.png">
+    
+        <p>A screenshot of the editor:</p>
+        ﻿<img class="developer-image" src="https://static.slid.es.s3.amazonaws.com/site/developers/slides-css-editor-2.png">
+    
+        </section>
+    </article>
 
-  typingElement.on('click', (e) => {
-    typingElement.removeClass('animate');
-    setTimeout(() => typingElement.addClass('animate'), 1);
-  })
-});
+    <script>
+        var toc = document.querySelector( '.toc' );
+var tocPath = document.querySelector( '.toc-marker path' );
+var tocItems;
+
+// Factor of screen size that the element must cross
+// before it's considered visible
+var TOP_MARGIN = 0.1,
+    BOTTOM_MARGIN = 0.2;
+
+var pathLength;
+
+var lastPathStart,
+		lastPathEnd;
+
+window.addEventListener( 'resize', drawPath, false );
+window.addEventListener( 'scroll', sync, false );
+
+drawPath();
+
+function drawPath() {
+  
+  tocItems = [].slice.call( toc.querySelectorAll( 'li' ) );
+
+  // Cache element references and measurements
+  tocItems = tocItems.map( function( item ) {
+    var anchor = item.querySelector( 'a' );
+    var target = document.getElementById( anchor.getAttribute( 'href' ).slice( 1 ) );
+
+    return {
+      listItem: item,
+      anchor: anchor,
+      target: target
+    };
+  } );
+
+  // Remove missing targets
+  tocItems = tocItems.filter( function( item ) {
+    return !!item.target;
+  } );
+
+  var path = [];
+  var pathIndent;
+
+  tocItems.forEach( function( item, i ) {
+
+    var x = item.anchor.offsetLeft - 5,
+        y = item.anchor.offsetTop,
+        height = item.anchor.offsetHeight;
+
+    if( i === 0 ) {
+      path.push( 'M', x, y, 'L', x, y + height );
+      item.pathStart = 0;
+    }
+    else {
+      // Draw an additional line when there's a change in
+      // indent levels
+      if( pathIndent !== x ) path.push( 'L', pathIndent, y );
+
+      path.push( 'L', x, y );
+      
+      // Set the current path so that we can measure it
+      tocPath.setAttribute( 'd', path.join( ' ' ) );
+      item.pathStart = tocPath.getTotalLength() || 0;
+      
+      path.push( 'L', x, y + height );
+    }
+    
+    pathIndent = x;
+    
+    tocPath.setAttribute( 'd', path.join( ' ' ) );
+    item.pathEnd = tocPath.getTotalLength();
+
+  } );
+  
+  pathLength = tocPath.getTotalLength();
+  
+  sync();
+  
+}
+
+function sync() {
+  
+  var windowHeight = window.innerHeight;
+  
+  var pathStart = pathLength,
+      pathEnd = 0;
+  
+  var visibleItems = 0;
+  
+  tocItems.forEach( function( item ) {
+
+    var targetBounds = item.target.getBoundingClientRect();
+    
+    if( targetBounds.bottom > windowHeight * TOP_MARGIN && targetBounds.top < windowHeight * ( 1 - BOTTOM_MARGIN ) ) {
+      pathStart = Math.min( item.pathStart, pathStart );
+      pathEnd = Math.max( item.pathEnd, pathEnd );
+      
+      visibleItems += 1;
+      
+      item.listItem.classList.add( 'visible' );
+    }
+    else {
+      item.listItem.classList.remove( 'visible' );
+    }
+    
+  } );
+  
+  // Specify the visible path or hide the path altogether
+  // if there are no visible items
+  if( visibleItems > 0 && pathStart < pathEnd ) {
+    if( pathStart !== lastPathStart || pathEnd !== lastPathEnd ) {
+      tocPath.setAttribute( 'stroke-dashoffset', '1' );
+      tocPath.setAttribute( 'stroke-dasharray', '1, '+ pathStart +', '+ ( pathEnd - pathStart ) +', ' + pathLength );
+      tocPath.setAttribute( 'opacity', 1 );
+    }
+  }
+  else {
+    tocPath.setAttribute( 'opacity', 0 );
+  }
+  
+  lastPathStart = pathStart;
+  lastPathEnd = pathEnd;
+
+}
     </script>
 </body>
 </html>
